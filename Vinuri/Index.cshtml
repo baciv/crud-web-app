@@ -1,0 +1,43 @@
+﻿@page
+@model FermaViticola.Pages.Vinuri.IndexModel
+@{
+}
+@section scripts {
+    <script>
+        @foreach (var item2 in Model.InformatiiVinuri)
+        {
+            @item2.idVin
+        }
+    </script>
+}
+
+<br>
+<h2>Lista Vinuri</h2>
+<a class="btn btn-primary" asp-page="/Vinuri/Insert">Adauga Vin Nou</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>idVin</th>
+            <th>numeVin</th>
+            <th>anRecolta</th>
+            <th>tipVin</th>
+            <th>pretLitru</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.InformatiiVinuri)
+        {
+            <tr>
+                <td>@item.idVin</td>
+                <td>@item.numeVin</td>
+                <td>@item.anRecolta</td>
+                <td>@item.tipVin</td>
+                <td>@item.pretLitru</td>
+                <td>
+                    <a class="btn btn-primary" asp-page="./Update" asp-route-id="@item.idVin">Editare</a>
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.idVin">Stergere</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

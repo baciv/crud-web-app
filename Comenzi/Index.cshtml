@@ -1,0 +1,42 @@
+﻿@page
+@model FermaViticola.Pages.Comenzi.IndexModel
+@{
+}
+
+
+<br>
+<h2>Lista Comenzi</h2>
+<a class="btn btn-primary" asp-page="/Comenzi/PretTotal">Incasari Comenzi</a>
+<a class="btn btn-primary" asp-page="/Comenzi/IncasariTipVin">Incasari in total dupa Tipul de Vin</a>
+<a class="btn btn-primary" asp-page="/Comenzi/VinuriVechi">Comenzi cu Vinuri mai vechi de 5 ani</a>
+<a class="btn btn-primary" asp-page="/Comenzi/VinuriCeDepasescSuma">Comenzi cu Vinuri ce depasesc o suma</a>
+<a class="btn btn-primary" asp-page="/Comenzi/NrComenziClient">Numar Comenzi / Client</a>
+<a class="btn btn-primary" asp-page="/Comenzi/VinuriNoi">Comenzi cu Vinuri mai noi de 3 ani</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>idComanda</th>
+            <th>dataComanda</th>
+            <th>numeVin</th>
+            <th>anRecolta</th>
+            <th>cantitate</th>
+            <th>numeClient</th>
+            <th>numeAngajat</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.informatiiComenzi)
+        {
+            <tr>
+                <td>@item.idComanda</td>
+                <td>@item.dataComanda</td>
+                <td>@item.numeVin</td>
+                <td>@item.anRecolta</td>
+                <td>@item.cantitate</td>
+                <td>@item.numeClient</td>
+                <td>@item.numeAngajat</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

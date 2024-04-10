@@ -1,0 +1,59 @@
+﻿@page
+@model FermaViticola.Pages.Vinuri.UpdateModel
+@{
+}
+
+
+<br>
+<h2>Update Vin</h2>
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dimiss="alert" aria-label="Inchide"></button>"
+    </div>
+}
+<form method="POST">
+    <input type="hidden" name="idVin" value="@Model.informatiiVin.idVin"</input>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">numeVin</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="numeVin" value="@Model.informatiiVin.numeVin">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">anRecolta</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="anRecolta" value="@Model.informatiiVin.anRecolta">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">tipVin</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="tipVin" value="@Model.informatiiVin.tipVin">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">pretLitru</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="pretLitru" value="@Model.informatiiVin.pretLitru">
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@Model.successMessage</strong>
+            <button type="button" class="btn-close" data-bs-dimiss="alert" aria-label="Inchide"></button>"
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Adauga</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-secondary" asp-page="./Index">Renunta</a>
+        </div>
+    </div>
+</form>

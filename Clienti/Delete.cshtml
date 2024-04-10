@@ -1,0 +1,26 @@
+﻿@page
+@using System.Data.SqlClient;
+@{
+    try
+    {
+        String idClient = Request.Query["id"];
+
+        string connectionString = "Data Source=DESKTOP-COOR4AG;Initial Catalog=FermaViticola;Integrated Security=True;Encrypt=False";
+        using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+        {
+            sqlConnection.Open();
+            String query = "DELETE FROM Clienti WHERE idClient = @idClient";
+            using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+            {
+                sqlCommand.Parameters.AddWithValue("@idClient", idClient);
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+    }
+    catch(Exception ex)
+    {
+
+    }
+
+    Response.Redirect("/Clienti/Index");
+}

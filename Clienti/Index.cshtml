@@ -1,0 +1,33 @@
+﻿@page
+@model FermaViticola.Pages.Clienti.IndexModel
+@{
+}
+
+<br>
+<h2>Lista clienti</h2>
+<a class="btn btn-primary" asp-page="/Clienti/Insert">Client Nou</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>idClient</th>
+            <th>Nume</th>
+            <th>Adresa</th>
+            <th>Telefon</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.InformatiiClienti)
+        {
+            <tr>
+                <td>@item.idClient</td>
+                <td>@item.numeClient</td>
+                <td>@item.adresa</td>
+                <td>@item.telefon</td>
+                <td>
+                    <a class="btn btn-primary" asp-page="./Update" asp-route-id="@item.idClient">Editare</a>
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.idClient">Stergere</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

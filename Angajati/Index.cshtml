@@ -1,0 +1,31 @@
+﻿@page
+@model FermaViticola.Pages.Angajati.IndexModel
+@{
+}
+<br>
+<h2>Lista Angajati</h2>
+<a class="btn btn-primary" asp-page="/Angajati/Index">Lista Angajati</a>
+<a class="btn btn-primary" asp-page="/Angajati/AngajatiSalariiMari">Angajati cu salarii mari si vanzari mari</a>
+<a class="btn btn-primary" asp-page="/Angajati/AngajatiNrComenzi">Numar de comenzi pentru fiecare angajat</a>
+<a class="btn btn-primary" asp-page="/Angajati/NumarVanzariManageri">Vanzari Manageri</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>idAngajat</th>
+            <th>numeAngajat</th>
+            <th>functie</th>
+            <th>salariu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.informatiiAngajati)
+        {
+            <tr>
+                <td>@item.idAngajat</td>
+                <td>@item.numeAngajat</td>
+                <td>@item.functie</td>
+                <td>@item.salariu</td>
+            </tr>
+        }
+    </tbody>
+</table>

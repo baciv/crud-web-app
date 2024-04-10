@@ -1,0 +1,32 @@
+﻿@page
+@model FermaViticola.Pages.Comenzi.VinuriVechiModel
+@{
+}
+
+<br>
+<h2>Lista Comenzi</h2>
+<a class="btn btn-primary" asp-page="/Comenzi/PretTotal">Incasari Comenzi</a>
+<a class="btn btn-primary" asp-page="/Comenzi/IncasariTipVin">Incasari in total dupa Tipul de Vin</a>
+<a class="btn btn-primary" asp-page="/Comenzi/VinuriVechi">Comenzi cu Vinuri mai vechi de 5 ani</a>
+<a class="btn btn-primary" asp-page="/Comenzi/VinuriCeDepasescSuma">Comenzi cu Vinuri ce depasesc o suma</a>
+<a class="btn btn-primary" asp-page="/Comenzi/NrComenziClient">Numar Comenzi / Client</a>
+<a class="btn btn-primary" asp-page="/Comenzi/VinuriNoi">Comenzi cu Vinuri mai noi de 3 ani</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>idComanda</th>
+            <th>numeVin</th>
+            <th>anRecolta</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.informatiiVinuriVechi)
+        {
+            <tr>
+                <td>@item.idComanda</td>
+                <td>@item.numeVin</td>
+                <td>@item.anRecolta</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,58 @@
+﻿@page
+@model FermaViticola.Pages.Clienti.UpdateModel
+@{
+}
+
+@section scripts {
+    <script>
+        console.log("idClient: @Model.informatiiClient.idClient");
+    </script>
+}
+
+<br>
+<h2>Update client</h2>
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dimiss="alert" aria-label="Inchide"></button>"
+    </div>
+}
+<form method="POST">
+    <input type="hidden" name="idClient" value="@Model.informatiiClient.idClient"</input>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Nume</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Nume" value="@Model.informatiiClient.numeClient">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Adresa</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Adresa" value="@Model.informatiiClient.adresa">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Telefon</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Telefon" value="@Model.informatiiClient.telefon">
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@Model.successMessage</strong>
+            <button type="button" class="btn-close" data-bs-dimiss="alert" aria-label="Inchide"></button>"
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Adauga</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-secondary" asp-page="./Index">Renunta</a>
+        </div>
+    </div>
+</form>

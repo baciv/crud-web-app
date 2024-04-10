@@ -1,0 +1,42 @@
+﻿@page
+@model FermaViticola.Pages.Comenzi.VinuriCeDepasescSumaModel
+@{
+}
+
+<h2>Lista Vinuri</h2>
+<a class="btn btn-primary" asp-page="/Comenzi/PretTotal">Incasari Comenzi</a>
+<a class="btn btn-primary" asp-page="/Comenzi/IncasariTipVin">Incasari in total dupa Tipul de Vin</a>
+<a class="btn btn-primary" asp-page="/Comenzi/VinuriVechi">Comenzi cu Vinuri mai vechi de 5 ani</a>
+<a class="btn btn-primary" asp-page="/Comenzi/VinuriCeDepasescSuma">Comenzi cu Vinuri ce depasesc o suma</a>
+<a class="btn btn-primary" asp-page="/Comenzi/NrComenziClient">Numar Comenzi / Client</a>
+<a class="btn btn-primary" asp-page="/Comenzi/VinuriNoi">Comenzi cu Vinuri mai noi de 3 ani</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>SumaPretTotal</th>
+            <th>numeVin</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.infoVinCeDepSuma)
+        {
+            <tr>
+                <td>@item.SumaPretTotal</td>
+                <td>@item.numeVin</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<form method="post">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">limita</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="limita" value="@Model.limita">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Adauga</button>
+        </div>
+</form>
